@@ -10,7 +10,14 @@ export function add(numbers) {
 
   const numberArray = numbers
     .split(new RegExp(`[${delimiters.join("")}]`))
-    .map((num) => parseInt(num, 10));
+    .map((num) => {
+      const parsedNum = parseInt(num, 10);
+      // Check for invalid characters and throw an error
+      if (isNaN(parsedNum)) {
+        throw new Error("Invalid input");
+      }
+      return parsedNum;
+    });
 
   // A Check for negative numbers
   const negativeNumbers = numberArray.filter((num) => num < 0);

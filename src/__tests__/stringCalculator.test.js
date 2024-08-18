@@ -22,4 +22,9 @@ describe("String Calculator Tests", () => {
       "negative numbers not allowed: -2, -4"
     );
   });
+  test("throws error for various invalid inputs", () => {
+    expect(() => add("123,qqqqq,456")).toThrow("Invalid input");
+    expect(() => add("1,dddd,2")).toThrow("Invalid input");
+    expect(() => add("qwnshfdbd")).toThrow("Invalid input");
+  });
 });
