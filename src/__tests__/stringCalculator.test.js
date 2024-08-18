@@ -1,7 +1,11 @@
 import { add } from "../stringCalculator";
 
-describe("String Calculator", () => {
-  test("should return 0 for an empty string", () => {
+describe("String Calculator Tests", () => {
+  test("Empty string returns 0", () => {
     expect(add("")).toBe(0);
+  });
+
+  test("Single number returns that number", () => {
+    expect(add("1")).toBe(1);
   });
 });
