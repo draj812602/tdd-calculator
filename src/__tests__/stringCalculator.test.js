@@ -14,4 +14,7 @@ describe("String Calculator Tests", () => {
   test("Handles new lines between numbers", () => {
     expect(add("1\n2,3")).toBe(6);
   });
+  test("Supports custom separator", () => {
+    expect(add("//;\n1;2")).toBe(3);
+  });
 });
