@@ -5,6 +5,8 @@ import "./App.css";
 import logo from "./assets/logo.png";
 import { Row, Col } from "react-bootstrap";
 
+import { add } from "./stringCalculator";
+
 //components
 import InputComp from "./Components/Input";
 import BtnComp from "./Components/Button";
@@ -21,6 +23,14 @@ function App() {
 
   const handleCalculate = () => {
     console.log("handleCalculate");
+    try {
+      const sum = add(input);
+      setResult(sum);
+      setError(null); // Clearing any previous error
+    } catch (err) {
+      setError(err.message);
+      setResult(null); // Clearing previous result if there's an error
+    }
   };
   return (
     <Row className="justify-content-center align-items-center vh-100">
@@ -41,6 +51,16 @@ function App() {
           BtnName={"Calculate"}
           onClick={handleCalculate}
         />
+        {result !== null && (
+          <div className="mt-3 fs-5 fw-semibold test-success">
+            <h2>Result: {result}</h2>
+          </div>
+        )}
+        {error && (
+          <div className="mt-3 fs-5 text-danger fw-semibold">
+            Error: {error}
+          </div>
+        )}
       </Col>
     </Row>
   );
