@@ -1,0 +1,7 @@
+input {
+  border: 1px solid #343a40 !important;
+}
+::placeholder {
+  color: #343a40 !important;
+  font-weight: 600;
+}
