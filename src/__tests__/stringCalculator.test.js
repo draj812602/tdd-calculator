@@ -1,4 +1,4 @@
-import { add } from "../stringCalculator";
+import { add } from "./helperFunctions/stringCalculator";
 
 describe("String Calculator Tests", () => {
   test("Empty string returns 0", () => {
